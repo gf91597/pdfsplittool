@@ -123,8 +123,6 @@ class MainWindow(QMainWindow):
 
 
     def split_pdf_with_bookmarks(self):
-        print("press xplit button \n")
-        print(f"----> {self.outputText.text()}")
         if self.outputText.text().strip() == "":
             print("use default output name")
             self.outputFile = "split.pdf"
@@ -155,15 +153,12 @@ class MainWindow(QMainWindow):
         start_page_index = self.startPage - 1
         end_page_index = self.endPage - 1
 
-        print("1")
         # 提取选定页到新 PDF
         for page_num in range(start_page_index, end_page_index + 1):
             new_doc.insert_pdf(doc, from_page=page_num, to_page=page_num)
 
-        print("2")
         # 提取并调整书签
         if self.bookMark == 1:
-            print("3")
             bookmarks = []
             for bmk in doc.get_toc():
                 # 书签格式：[level, title, page_number]
@@ -174,16 +169,13 @@ class MainWindow(QMainWindow):
             if bookmarks:
                 new_doc.set_toc(bookmarks)
 
-        print("4")
         # 保存并关闭文件
         new_doc.save(self.outputFile)
         new_doc.close()
         doc.close()
-        print("5")
-        #str = "success split from " + str(startNumStr) + " to " + str(endNumStr) + " file " +self.outputFile
-        #print(str)
-        #self.showInfoLabel.setText(str)
-        print(f"成功提取第 {self.startPage} 到第 {self.endPage} 页，并保留目录，保存为 {self.outputFile}")
+        str = "success split to " +self.outputFile
+        self.showInfoLabel.setText(str)
+        #print(f"成功提取第 {self.startPage} 到第 {self.endPage} 页，并保留目录，保存为 {self.outputFile}")
 class NewWindow(QWidget):
     def __init__(self, text):
         super().__init__()

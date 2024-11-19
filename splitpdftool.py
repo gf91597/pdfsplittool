@@ -128,6 +128,10 @@ class MainWindow(QMainWindow):
             self.outputFile = "split.pdf"
         else:
             self.outputFile = self.outputText.text() + ".pdf"
+
+        if self.inputFile == ""
+            self.showInfoLabel.setText("No pdf is opened, please open one pdf file")
+            return
         startNumStr = self.startNumText.text()
         self.startPage = int(startNumStr)
         endNumStr = self.endNumText.text()

@@ -15,5 +15,5 @@ outputfile: special your split file name
 Use this cmd to create execute program
 pyinstaller --onefile --noconsole splitpdftool.py
 
-This program no more err detect, so must in put right paras
+This program no more err detect, so must input right paras
 

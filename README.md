@@ -17,3 +17,7 @@ pyinstaller --onefile --noconsole splitpdftool.py
 
 This program no more err detect, so must input right paras
 
+This is a platform independent application, and  test with windows11 and ubuntu24.04
+You need to install needed libs by yourself
+
+

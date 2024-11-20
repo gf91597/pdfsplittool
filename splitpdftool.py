@@ -1,3 +1,4 @@
+#!/home/pt/myenv/bin/python3
 import sys
 import os
 from PyQt5.QtWidgets import QHBoxLayout, QApplication, QFileDialog,QMainWindow, QWidget, QVBoxLayout, QLineEdit, QPushButton, QLabel
@@ -24,16 +25,16 @@ class MainWindow(QMainWindow):
         layout.setSpacing(30)
 
         self.startLable = QLabel()
-        self.startLable.setText("start Num: ")
+        self.startLable.setText("start page: ")
         self.endLable = QLabel()
-        self.endLable.setText("end Num: ")
+        self.endLable.setText("end page: ")
 
         self.startNumText = QLineEdit(self)
-        self.startNumText.setPlaceholderText("Start Num")
+        self.startNumText.setPlaceholderText("Start page")
         self.startNumText.setFixedSize(150, 40)
 
         self.endNumText = QLineEdit(self)
-        self.endNumText.setPlaceholderText("End Num")
+        self.endNumText.setPlaceholderText("End page")
         self.endNumText.setFixedSize(150, 40)
 
         hboxText = QHBoxLayout()
@@ -89,7 +90,7 @@ class MainWindow(QMainWindow):
     def setBookMark(self):
         if self.bookMark == 0:
             self.bookMark = 1
-            self.tipsLabel.setText("Warning: Use book mark to split")
+            self.tipsLabel.setText("Warning: Use book mark to split, maybe fail")
         else:
             self.bookMark = 0
             self.tipsLabel.setText("Do not Use book mark to split")
@@ -129,7 +130,7 @@ class MainWindow(QMainWindow):
         else:
             self.outputFile = self.outputText.text() + ".pdf"
 
-        if self.inputFile == ""
+        if self.inputFile == "":
             self.showInfoLabel.setText("No pdf is opened, please open one pdf file")
             return
         startNumStr = self.startNumText.text()
